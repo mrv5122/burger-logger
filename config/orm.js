@@ -39,7 +39,9 @@ var orm = {
     selectAll: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
-            if (err) {throw err};
+            if (err) {
+                throw err
+            };
             cb(result);
         });
     },
@@ -47,9 +49,9 @@ var orm = {
     // insert a burger into burgers_db
     insertOne: function(table, cols, vals, cb) {
 
-        var queryString = "INSERT INTO" + table;
+        var queryString = "INSERT INTO " + table;
         queryString += " (";
-        queryString += cols.toString;
+        queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
         queryString += printQMarks(vals.length);
@@ -58,7 +60,9 @@ var orm = {
         console.log(queryString);
 
         connection.query(queryString, vals, function(err, result) {
-            if (err) {throw err;}
+            if (err) {
+                throw err;
+            }
             cb(result);
         });
     },
@@ -74,7 +78,9 @@ var orm = {
         console.log(queryString);
 
         connection.query(queryString, function(err, result) {
-            if (err) {throw err;}
+            if (err) {
+                throw err;
+            }
             cb(result);
         });
     }

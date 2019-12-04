@@ -1,5 +1,5 @@
-$(function() {
-    
+$(document).ready(function() {
+
     $(".change-devoured").on("click", function(event) {
         var id = $(this).data("id");
         var newDevoured = $(this).data("newdevoured");
@@ -14,7 +14,7 @@ $(function() {
             data: newDevouredState
         }).then(
             function() {
-                console.log("changed devoured to ", newDevouredState);
+                console.log("changed devoured to ", newDevoured);
                 // reload page for updated list
                 location.reload();
             }
@@ -25,7 +25,7 @@ $(function() {
         event.preventDefault();
 
         var newBurger = {
-            burgerName: $("bu").val().trim(),
+            name: $("#bu").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
 
